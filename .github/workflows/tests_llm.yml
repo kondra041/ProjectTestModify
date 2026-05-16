@@ -1,9 +1,6 @@
 name: Run LLM Generated Tests
 
 on:
-  push:
-    paths:
-      - 'src/test/java/generated/**'
   pull_request:
     paths:
       - 'src/test/java/generated/**'
@@ -15,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -23,8 +22,8 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Run only generated tests
-        run: mvn test -Dtest="generated.*"
+      - name: Run tests
+        run: mvn test
 
       - name: Upload test reports
         if: always()
