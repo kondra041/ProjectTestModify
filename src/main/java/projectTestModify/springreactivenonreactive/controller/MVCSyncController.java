@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import projecttest.springreactivenonreactive.model.Message;
-import projecttest.springreactivenonreactive.repository.NonReactiveRepository;
+import projectTestModify.springreactivenonreactive.model.Message;
+import projectTestModify.springreactivenonreactive.repository.NonReactiveRepository;
 
 @RestController
 public class MVCSyncController {

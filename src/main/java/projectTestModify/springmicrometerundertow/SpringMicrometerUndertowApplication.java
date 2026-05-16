@@ -1,10 +1,7 @@
 package projectTestModify.springmicrometerundertow;
 
 import io.micrometer.core.instrument.MeterRegistry;
-import io.undertow.server.HandlerWrapper;
-import io.undertow.server.handlers.MetricsHandler;
-import io.undertow.servlet.api.MetricsCollector;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;

@@ -2,15 +2,16 @@ package projectTestModify.springuploads3.service;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.S3Object;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import projecttest.springuploads3.service.model.DownloadedResource;
+
+import projectTestModify.springuploads3.service.model.DownloadedResource;
 import lombok.SneakyThrows;
 
 @Service
@@ -37,13 +38,13 @@ public class S3StorageService implements StorageService {
         
         return key;
     }
-    
+
     @Override
     public DownloadedResource download(String id) {
         S3Object s3Object = amazonS3.getObject(bucketName, id);
         String filename = id + "." + s3Object.getObjectMetadata().getUserMetadata().get(FILE_EXTENSION);
         Long contentLength = s3Object.getObjectMetadata().getContentLength();
-        
+
         return DownloadedResource.builder().id(id).fileName(filename).contentLength(contentLength).inputStream(s3Object.getObjectContent())
                 .build();
     }

@@ -1,6 +1,6 @@
 package projectTestModify.springuploads3.controller;
 
-import projecttest.springuploads3.service.StorageService;
+import projectTestModify.springuploads3.service.StorageService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
