@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class BookRepository {
 	
-	private ArrayList<Book> books = new ArrayList<>();
-	private int booksFound = 0;
+	public ArrayList<Book> books = new ArrayList<>();
+	public int booksFound = 0;
 	
 	//Constructor to initialize books
 	public BookRepository(){
@@ -34,18 +34,18 @@ public class BookRepository {
 	
 
 	//Searching books by ISBN Number
-	public void searchByISBN(int isbn) {
+	public boolean searchByISBN(int isbn) {
 		booksFound = 0;
 		for(Book book : books) {
 			if(book.getIsbn()==isbn) {
 				bookDetails(book);
 				booksFound++;
 				break;
+
 			}
 				
 		}
-		System.out.printf("\n%d Book%s Found.\n",booksFound,booksFound>1?"s":"");
-		return;
+        return booksFound > 0;
 	}
 	
 	
